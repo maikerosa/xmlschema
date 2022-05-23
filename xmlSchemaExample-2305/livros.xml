@@ -1,47 +1,108 @@
-<?xml version ="1.1" encoding="UTF-8"?>
-<Livros>
-<livro ISBN="112"> 
-  <titulo>Tecnologia XML</titulo>
-  <preco>79.00</preco>
-  <autor> 
-    <nome>Joao da Silva</nome>
-    <mail>js@hotmail.com</mail>
-    <mail>jsilva@xxx.com</mail>
-  </autor>
-  <autor> 
-    <nome>Maria Souza</nome>
-  </autor>
-  <editora>Campus</editora>
-</livro>
-<livro ISBN="72"> 
-  <titulo>Banco de Dados</titulo>
-  <preco>129.00</preco>
-  <autor> 
-    <nome>Pedro Santos</nome>
-  </autor>
-  <editora>Makron Books</editora>
-</livro>
-<livro ISBN="239"> 
-  <titulo>Sistemas de Informacao</titulo>
-  <preco>208.50</preco>
-  <autor> 
-    <nome>Ana Pereira</nome>
-    <mail>ps@ig.com.br</mail>
-    <mail>anap@zzz.com</mail>
-  </autor>
-  <editora>Campus</editora>
-</livro>
-<livro ISBN="243"> 
-  <titulo>ERBD 2007</titulo>
-  <preco>38.50</preco>
-  <evento>
-	<local>
-		<cidade>Caxias do Sul</cidade>
-		<estado>RS</estado>
-	</local>
-	<dataInicio>2007-04-09</dataInicio>
-	<dataTermino>2007-04-09</dataTermino>
-  </evento>  
-  <editora>Editora da UCS</editora>
-</livro>
-</Livros>
+<?xml version="1.1" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Livros">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="livro">
+                    <!-- 112 -->
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string" />
+                            <xs:element name="preco" type="xs:float" />
+                            <xs:element name="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nome" type="xs:string" />
+                                        <xs:element name="mail" type="xs:string" />
+                                        <xs:element name="mail" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nome" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="editora" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="ISBN" type="xs:string" />
+                    </xs:complexType>
+                </xs:element>
+                <!-- 72-->
+                <xs:element name="livro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string" />
+                            <xs:element name="preco" type="xs:float" />
+                            <xs:element name="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nome" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="editora" type="xs:string" />
+
+
+                        </xs:sequence>
+                        <xs:attribute name="ISBN" type="xs:string" />
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- 239-->
+                <xs:element name="livro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string" />
+                            <xs:element name="preco" type="xs:float" />
+                            <xs:element name="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nome" type="xs:string" />
+                                        <xs:element name="mail" type="xs:string" />
+                                        <xs:element name="mail" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="editora" type="xs:string" />
+
+
+                        </xs:sequence>
+                        <xs:attribute name="ISBN" type="xs:string" />
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- 243-->
+                <xs:element name="livro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="titulo" type="xs:string" />
+                            <xs:element name="preco" type="xs:float" />
+                            <xs:element name="evento">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="local">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="cidade" type="xs:string" />
+                                                    <xs:element name="estado" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="dataInicio" type="xs:date" />
+                                        <xs:element name="dataTermino" type="xs:date" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="editora" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="ISBN" type="xs:string" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+
+    </xs:element>
+</xs:schema>
